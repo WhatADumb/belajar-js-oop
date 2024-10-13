@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ValidationError extends Error{
+            constructor(message, field){
+                super(message)
+                this.field = field
+            }
+        }
+
+        class MathUtil{
+            #counter = 0
+
+            static sum(...values){
+                if(values.length === 0){
+                    throw new ValidationError("Input harus berupa angka dan harus lebih dari 0", "number")
+                }
+
+                let total = 0
+                for(let value of values){
+                    total += value
+                }
+
+                return total
+            }
+
+            increment(){
+                try{
+                    return this.#counter
+                }finally{
+                    this.#counter++
+                }
+            }
+        }
+
+        try {
+            console.log(MathUtil.sum())
+        } catch (error) {
+            if(error instanceof ValidationError){
+                console.error(`Error pada field ${error.field}: ${error.message}`)
+            }else{
+                console.error(`Error: ${error}`)
+            }
+        }
+    </script>
+</body>
+</html>

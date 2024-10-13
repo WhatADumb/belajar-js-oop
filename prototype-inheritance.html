@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+            // Dumbfuck ways to inheritance
+            
+            function Employee(name){
+                this.name = name
+            }
+
+            function Manager(name){
+                this.name = name
+            }
+
+            Manager.prototype = Employee.prototype
+
+            Employee.prototype.hello = function(name){
+                console.info(`Hello ${name}, my name is ${this.name} as a Employee`)
+            }
+
+            Manager.prototype.hello = function(name){
+                console.info(`Hello ${name}, my name is ${this.name} as a Manager`)
+            }
+
+            let employee = new Employee("Alpha")
+            employee.hello("Customer")
+
+            let manager = new Manager("Beta")
+            manager.hello("Customer")
+
+            console.log(employee)
+            console.log(manager)
+        }
+
+        {
+            // Correct ways to inheritance
+            
+            function Employee(name){
+                this.name = name
+            }
+
+            function Manager(name){
+                this.name = name
+            }
+
+            Manager.prototype = Object.create(Employee.prototype)
+
+            Employee.prototype.hello = function(name){
+                console.info(`Hello ${name}, my name is ${this.name} as a Employee`)
+            }
+
+            Manager.prototype.hello = function(name){
+                console.info(`Hello ${name}, my name is ${this.name} as a Manager`)
+            }
+
+            let employee = new Employee("Alpha")
+            employee.hello("Customer")
+
+            let manager = new Manager("Beta")
+            manager.hello("Customer")
+
+            console.log(employee)
+            console.log(manager)
+        }
+    </script>
+</body>
+</html>

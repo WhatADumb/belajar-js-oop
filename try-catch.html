@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MathUtil{
+            #counter = 0
+
+            static sum(...values){
+                if(values.length === 0){
+                    throw new Error("Input harus berupa angka dan harus lebih dari 0")
+                }
+
+                let total = 0
+                for(let value of values){
+                    total += value
+                }
+
+                return total
+            }
+
+            increment(){
+                try{
+                    return this.#counter
+                }finally{
+                    this.#counter++
+                }
+            }
+        }
+
+        try {
+            console.log("ATTEMPT-1")
+            console.log(MathUtil.sum(1,2,3,4,5))
+        } catch (error) {
+            console.error(`Error Code: ${error}`)
+        }finally{
+            console.log("Program Finished")
+        }
+
+        try {
+            console.log("ATTEMPT-2")
+            console.log(MathUtil.sum())
+        } catch (error) {
+            console.error(`Error Code: ${error}`)
+        }finally{
+            console.log("Program Finished")
+        }
+
+        let value = new MathUtil()
+        for(let i = 0; i < 5; i++){
+            value.increment()
+        }
+        console.log(value.increment())
+    </script>
+</body>
+</html>

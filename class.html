@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name){
+                // console.log(`Person's ${name} initialised`)
+                this.name = name
+            }
+
+            sayHello(name){
+                console.log(`Hello ${name}, my name is ${this.name}`)
+            }
+        }
+
+        let fadhil = new Person("Fadhil")
+        console.log(`Hello ${fadhil.name}`)
+        fadhil.sayHello("Firmansyah")
+        console.log(fadhil)
+    </script>
+</body>
+</html>

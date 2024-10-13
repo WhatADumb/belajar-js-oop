@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Shape{
+            information(){
+                console.log("Form of shape")
+            }
+        }
+
+        class Circle extends Shape{
+            information(){
+                super.information()
+                console.log("With shape of circle")
+            }
+        }
+
+        let circle = new Circle()
+        circle.information()
+    </script>
+</body>
+</html>

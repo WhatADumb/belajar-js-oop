@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Greeting{
+            hello(name){
+                if(name){
+                    this.#sayHello(name)
+                }else{
+                    this.#sayHelloWithoutName()
+                }
+            }
+
+            #sayHello(name){
+                console.log(`Hello ${name}`)
+            }
+
+            #sayHelloWithoutName(){
+                console.log(`Hello`)
+            }
+        }
+
+        let salam = new Greeting()
+        salam.hello()
+        salam.hello("Goon")
+    </script>
+</body>
+</html>
